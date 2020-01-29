@@ -8,6 +8,9 @@
  */
 class String : public Object {
  public:
+  // Empty constructor
+  String();
+
   // Constructor taking in string literal
   String(const char *buf);
 
