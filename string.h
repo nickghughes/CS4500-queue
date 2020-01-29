@@ -11,6 +11,9 @@ class String : public Object {
   // Constructor taking in string literal
   String(const char *buf);
 
+  // Constructor taking in char pointer
+  String(char *buf);
+
   // Constructor taking in string
   String(String *const s);
 
