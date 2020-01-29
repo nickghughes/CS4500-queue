@@ -9,8 +9,11 @@
  */
 class Queue : public Object {
  public:
-  Queue() {}
-  ~Queue() {}
+  // Default constructor
+  Queue();
+
+  // Default destructor
+  ~Queue();
 
   /**
    * Adds an element to the queue
@@ -22,7 +25,7 @@ class Queue : public Object {
    * - true on success
    * - false on failure
    */
-  bool offer(Object* o) {}
+  bool offer(Object* o);
 
   /**
    * Peeks at the front of the queue
@@ -31,7 +34,7 @@ class Queue : public Object {
    * - the first element in the queue
    * - null if empty
    */
-  Object* peek() {}
+  Object* peek();
 
   /**
    * Removes an element from the queue
@@ -40,17 +43,11 @@ class Queue : public Object {
    * - the removed object
    * - null if empty
    */
-  Object* poll() {}
+  Object* poll();
 
   // Overrides object hash()
-  size_t hash() {}
+  size_t hash();
 
   // Overrides object equals
-  bool equals(Object* other) {}
-
-  // Overrides object copy
-  Object* copy() {}
-
-  // Overrides object print_self
-  void print_self() {}
+  bool equals(Object* other);
 };

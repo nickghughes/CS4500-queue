@@ -8,20 +8,28 @@
  */
 class String : public Object {
  public:
-  String(char *buf) {}
+  // Constructor taking in string literal
+  String(const char *buf);
 
-  String(const char *buf) {}
+  // Constructor taking in string
+  String(String *const s);
 
-  ~String() {}
+  // Inherited destructor from object
+  ~String();
 
   // Calculates the length of the string
-  size_t length() {}
+  size_t size();
 
-  // Returns the value of this string
-  char *get() {}
-
-  // Gets the char at a specific position in the string
-  char char_at(size_t i) {}
+  /** Compares string to another string (alphabetical)
+   *
+   * Args:
+   * - s: string to compare to this string
+   * Returns:
+   * - <0 if this string belongs first alphabetically
+   * - 0 if strings are equal
+   * - >0 if this string belongs second alphabetically
+   */
+  int cmp(String *const s);
 
   /**
    * Concatenates another string and this string,
@@ -30,17 +38,11 @@ class String : public Object {
    * Args:
    * - s: the string to append to this string
    */
-  String *concat(String *s) {}
+  String *concat(String const *s);
 
   // Overrides object hash()
-  size_t hash() {}
+  size_t hash();
 
   // Overrides object equals
-  bool equals(Object *other) {}
-
-  // Overrides object copy
-  Object *copy() {}
-
-  // Overrides object print_self
-  void print_self() {}
+  bool equals(Object const *other);
 };
