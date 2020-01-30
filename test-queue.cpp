@@ -62,6 +62,28 @@ void test_queue_poll_success() {
   OK("Poll Success");
 }
 
+void test_queue_equality() {
+  Queue *q1 = new Queue();
+  Queue *q2 = new Queue();
+  t_true(q1->equals(q2));
+  t_true(q1->hash() == q2->hash());
+
+  String *s = new String("Hello");
+  String *t = new String("World");
+  String *u = new String("HelloWorld");
+  q1->offer(s);
+  q1->offer(t);
+  q1->offer(u);
+  t_false(q1->equals(q2));
+  t_false(q1->hash() == q2->hash());
+
+  q2->offer(s);
+  q2->offer(t);
+  q2->offer(u);
+  t_true(q1->equals(q2));
+  t_true(q1->hash() == q2->hash());
+}
+
 int main() {
   test_queue_offer_null();
   test_queue_offer_success();
@@ -69,5 +91,6 @@ int main() {
   test_first_in_peek();
   test_empty_queue_poll();
   test_queue_poll_success();
+  test_queue_equality();
   return 0;
 }
