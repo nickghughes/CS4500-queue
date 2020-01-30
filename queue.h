@@ -44,4 +44,10 @@ class Queue : public Object {
    * - null if empty
    */
   Object* poll();
+
+  // Overrides object hash()
+  size_t hash();
+
+  // Overrides object equals
+  bool equals(Object const* other);
 };
